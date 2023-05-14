@@ -1,6 +1,69 @@
-
 public abstract class Employee {
 
+    long id;
+    String nume;
+    long salariu;
+    int vechime;
+    String functie;
+    Project[] proiecte;
+
+    public Employee(long id, String nume, long salariu) {
+        this.id = id;
+        this.nume = nume;
+        this.salariu = salariu;
+    }
+
+    public String getNume() {
+        return nume;
+    }
+
+    public void setNume(String nume) {
+        this.nume = nume;
+    }
+
+    public long getSalariu() {
+        return salariu;
+    }
+
+    public void setSalariu(long salariu) {
+        this.salariu = salariu;
+    }
+
+    public int getVechime() {
+        return vechime;
+    }
+
+    public void setVechime(int vechime) {
+        this.vechime = vechime;
+    }
+
+    public String getFunctie() {
+        return functie;
+    }
+
+    public void setFunctie(String functie) {
+        this.functie = functie;
+    }
+
+    public Project[] getProiecte() {
+        return proiecte;
+    }
+
+    public void setProiecte(Project[] proiecte) {
+        this.proiecte = proiecte;
+    }
+
+    public abstract void print();
+
+    public String getDepartment(){
+        String departament = "";
+        for(int i = 0; i < proiecte.length; i++){
+            if (!departament.contains(proiecte[i].getDepartment().getNume())){
+                departament = departament + " " +proiecte[i].getDepartment().getNume();
+            }
+        }
+        return departament;
+    }
     /*
     Adaugati urmatoarele campuri cu tipurile aferente:
         - id -> identificator UNIC pentru fiecare angajat
